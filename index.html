@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>love u delta</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #2a2b2b;
+      height: 100vh;
+      overflow: auto;
+      padding-top: 60px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #111827;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header a {
+      color: #93c5fd;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    header a:hover {
+      color: white;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 2000px;
+    }
+
+    .topic {
+      position: absolute;
+      width: 250px;
+      padding: 15px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      animation: float 4s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
+
+    .topic.active {
+      z-index: 10;
+      transform: scale(1.05);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .content {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #374151;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#topico-inicio">Situação</a>
+      <a href="#topico-situacao">Impacto</a>
+      <a href="https://moynaru.github.io/Find-delta/"> Delta?</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div id="topico-inicio" class="topic" style="top: 100px; left: 100px" onclick="toggleContent(this)">
+      <h3>Início da Guerra da Ucrânia</h3>
+      <div class="content" style="display: none">
+        A guerra começou em 24 de fevereiro de 2022, quando a Rússia iniciou uma invasão em larga escala ao território ucraniano.
+      </div>
+    </div>
+
+    <div id="topico-motivo" class="topic" style="top: 250px; left: 400px" onclick="toggleContent(this)">
+      <h3>Motivo</h3>
+      <div class="content" style="display: none">
+        Os motivos incluem disputas territoriais, influência geopolítica e o desejo da Ucrânia de se aproximar da OTAN e da União Europeia.
+      </div>
+    </div>
+
+    <div id="topico-situacao" class="topic" style="top: 400px; left: 200px" onclick="toggleContent(this)">
+      <h3>Situação Atual</h3>
+      <div class="content" style="display: none">
+        A guerra segue ativa com conflitos intensos. A Ucrânia recebe apoio militar do Ocidente, enquanto a Rússia mantém presença em territórios ocupados.
+      </div>
+    </div>
+
+    <div id="topico-impacto" class="topic" style="top: 600px; left: 500px" onclick="toggleContent(this)">
+      <h3>Impacto Econômico</h3>
+      <div class="content" style="display: none">
+        A guerra causou severas sanções econômicas à Rússia e impactos no comércio global, especialmente em energia e alimentos.
+      </div>
+    </div>
+
+    <div class="topic" style="top: 800px; left: 150px" onclick="toggleContent(this)">
+      <h3>Reação Internacional</h3>
+      <div class="content" style="display: none">
+        Diversos países condenaram a invasão. A OTAN e a UE apoiaram a Ucrânia com recursos financeiros, militares e humanitários.
+      </div>
+    </div>
+
+    <div class="topic" style="top: 1000px; left: 350px" onclick="toggleContent(this)">
+      <h3>Consequências Humanitárias</h3>
+      <div class="content" style="display: none">
+        Milhões de pessoas foram deslocadas, criando uma crise humanitária que mobilizou ONGs e agências da ONU pelo mundo.
+      </div>
+    </div>
+
+    <div class="topic" style="top: 1200px; left: 600px" onclick="toggleContent(this)">
+      <h3>Possíveis Desfechos</h3>
+      <div class="content" style="display: none">
+        Ainda incerto, mas envolve negociações de paz, cessar-fogo duradouro ou prolongamento do conflito por anos.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleContent(element) {
+      document.querySelectorAll('.topic').forEach(topic => {
+        const content = topic.querySelector('.content');
+        if (topic === element) {
+          const isVisible = content.style.display === 'block';
+          content.style.display = isVisible ? 'none' : 'block';
+          topic.classList.toggle('active', !isVisible);
+        } else {
+          topic.classList.remove('active');
+          topic.querySelector('.content').style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
